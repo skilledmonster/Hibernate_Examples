@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2013 7:41:54 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.skilledmonster.sakila.model.Store" table="store" catalog="sakila">
+        <id name="storeId" type="integer">
+            <column name="store_id" />
+            <generator class="identity" />
+        </id>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="store_id" not-null="true" />
+            </key>
+            <one-to-many class="com.skilledmonster.sakila.model.Customer" />
+        </set>
+    </class>
+</hibernate-mapping>
